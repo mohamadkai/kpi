@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيشن: أهداف ومؤشرات أداء السوشيال ميديا</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6A1B9A; 
+            --secondary-color: #F57F17; 
+            --success-color: #2E7D32; 
+            --info-color: #1565C0; 
+            --danger-color: #C62828; 
+            --light-bg: #F9F9F9;
+            --dark-text: #333;
+            --light-text: #FFF;
+            --border-radius: 15px;
+            --box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #ECEFF1;
+            color: var(--dark-text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .presentation-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .slide {
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px 40px;
+            margin-bottom: 40px;
+            border-left: 10px solid;
+        }
+
+        h1, h2, h3 {
+            font-weight: 900;
+            margin-top: 0;
+        }
+        
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.6rem; }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .content-block {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .content-block:last-child {
+            border-bottom: none;
+        }
+
+        /* Slide Specific Styles */
+        .slide-title {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+            border-left: none;
+        }
+        .slide-title h1 {
+            margin: 0;
+        }
+        .slide-title p {
+            font-size: 1.4rem;
+            opacity: 0.9;
+        }
+
+        .slide-intro { border-color: var(--secondary-color); }
+        .slide-definition { border-color: var(--info-color); }
+        .slide-smart { border-color: var(--success-color); }
+        .slide-kpis { border-color: var(--danger-color); }
+        .slide-tools { border-color: #455A64; } 
+        .slide-report { border-color: #00695C; } 
+        .slide-conclusion { 
+            background-color: var(--primary-color); 
+            color: var(--light-text);
+            text-align: center;
+            border: none;
+        }
+
+        .comparison-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .comparison-box {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #E3F2FD;
+            border: 2px solid var(--info-color);
+        }
+
+        .smart-goal-example {
+            background-color: #E8F5E9;
+            border: 2px dashed var(--success-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .smart-goal-example .bad {
+            color: var(--danger-color);
+            text-decoration: line-through;
+        }
+        .smart-goal-example .good {
+            color: var(--success-color);
+        }
+
+        .kpi-families {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .kpi-family-card {
+            background-color: #FFF3E0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+        .kpi-family-card h3 {
+            margin-bottom: 10px;
+        }
+        .kpi-family-card .icon {
+            font-size: 3rem;
+        }
+        
+        .pro-tip {
+            background-color: #FFF9C4;
+            padding: 15px;
+            border-radius: 10px;
+            border-right: 5px solid #FBC02D;
+            margin-top: 20px;
+        }
+        .pro-tip strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .report-steps {
+            counter-reset: report-counter;
+            padding-right: 0;
+        }
+        .report-steps .step {
+            counter-increment: report-counter;
+            padding: 15px 15px 15px 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-right: 50px;
+        }
+        .report-steps .step::before {
+            content: counter(report-counter);
+            background-color: #00695C;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            top: 15px;
+        }
+
+
+        @media (max-width: 768px) {
+            .comparison-container {
+                flex-direction: column;
+            }
+            .slide {
+                padding: 20px;
+            }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+
+        <!-- SLIDE 1: TITLE -->
+        <div class="slide-title">
+            <h1>🎯 الأهداف ومؤشرات الأداء (KPIs)</h1>
+            <p>الدليل الكامل عشان نحول شغل السوشيال ميديا لأرقام ونتائج حقيقية</p>
+        </div>
+
+        <!-- SLIDE 2: WHY? -->
+        <div class="slide slide-intro">
+            <h2>🤔 ليه السيشن دي مهمة؟ ليه بنتكلم في الموضوع ده أصلاً؟</h2>
+            <p>ببساطة، إحنا مش بنعمل بوستات شكلها حلو وخلاص، إحنا بنعملها عشان تحقق هدف بيزنس واضح. السيشن دي هتساعدنا:</p>
+            
+            <div class="content-block">
+                <strong>نعرف مجهودنا رايح فين:</strong> هل الفيديوهات بتجيب نتيجة أحسن ولا الصور؟ نعرف إحنا ماشيين صح ولا لأ بأرقام واضحة، مش "بالإحساس".
+            </div>
+            <div class="content-block">
+                <strong>نقنع العميل:</strong> الأرقام بتتكلم. نثبت قيمة شغلنا للعميل ونقوله: "صرفنا X وجالنا Y".
+            </div>
+            <div class="content-block">
+                <strong>نطور من نفسنا:</strong> لما نعرف إيه اللي نجح وإيه اللي لأ، المرة الجاية هنعمل الأحسن.
+            </div>
+            <div class="content-block">
+                <strong>نشتغل باستراتيجية:</strong> نحول المجهود العشوائي لخطط ذكية بتوصلنا لهدف معين.
+            </div>
+        </div>
+        
+        <!-- SLIDE 3: GOAL VS KPI -->
+        <div class="slide slide-definition">
+            <h2>الزتونة: إيه الفرق بين الهدف والـ KPI؟ 🏆📈</h2>
+            <p>تخيل إنك مسافر بالعربية. لازم تفهم الفرق ده عشان متتوهش:</p>
+            <div class="comparison-container">
+                <div class="comparison-box">
+                    <h3>الهدف (Goal)</h3>
+                    <p>ده هو "الوجهة النهائية". المكان اللي عايز توصل له.<br><b>مثال: "الوصول إلى الإسكندرية".</b></p>
+                </div>
+                <div class="comparison-box">
+                    <h3>مؤشر الأداء (KPI)</h3>
+                    <p>دي "عدادات العربية". بتقولك سرعتك كام وبنزينك قد إيه.<br><b>مثال: "سرعة السيارة (كم/ساعة)".</b></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: SMART GOALS -->
+        <div class="slide slide-smart">
+            <h2>✨ الأهداف الذكية (SMART Goals): التخطيط الصح</h2>
+            <p>أي هدف لازم يكون "SMART" عشان نعرف نحققه:</p>
+            
+            <div class="content-block">
+                <strong>S - محدد (Specific):</strong> إجابة واضحة لـ (ماذا؟ ولمن؟). مش "عايزين نكبر"، لأ، "عايزين نزود متابعين انستجرام".
+            </div>
+            <div class="content-block">
+                <strong>M - قابل للقياس (Measurable):</strong> فيه رقم نقدر نقيس عليه النجاح. "نزودهم 5000 متابع".
+            </div>
+            <div class="content-block">
+                <strong>A - قابل للتحقيق (Achievable):</strong> هدف منطقي بالنسبة للموارد المتاحة.
+            </div>
+            <div class="content-block">
+                <strong>R - له صلة (Relevant):</strong> بيخدم الهدف الأكبر للشركة أو الحملة.
+            </div>
+            <div class="content-block">
+                <strong>T - محدد بوقت (Time-bound):</strong> له ميعاد نهائي (Deadline). "هنعمل ده خلال 3 شهور".
+            </div>
+
+            <div class="smart-goal-example">
+                <h3>مثال عملي:</h3>
+                <p class="bad">❌ هدف أي كلام: "عايزين ننتشر على فيسبوك."</p>
+                <p class="good">✅ هدف SMART: "زيادة الـ Reach الأسبوعي لصفحة فيسبوك ليصل إلى 200,000 مستخدم خلال شهر أكتوبر القادم من خلال نشر 5 فيديوهات قصيرة أسبوعيًا."</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: KPI FAMILIES -->
+        <div class="slide slide-kpis">
+            <h2>📊 مؤشرات الأداء الرئيسية (KPIs)</h2>
+            <p>كل مؤشرات الأداء بتنتمي لواحدة من 4 فئات رئيسية. كل فئة منهم بتمثل مرحلة بيمر بيها العميل معاك:</p>
+            <div class="kpi-families">
+                <div class="kpi-family-card">
+                    <div class="icon">📣</div>
+                    <h3>الوصول والوعي</h3>
+                    <p>صوتنا بيوصل لكام واحد؟</p>
+                </div>
+                <div class="kpi-family-card">
+                    <div class="icon">❤️</div>
+                    <h3>التفاعل</h3>
+                    <p>الناس بتتكلم معانا ومهتمة؟</p>
+                </div>
+                <div class="kpi-family-card">
+                    <div class="icon">💰</div>
+                    <h3>التحويل</h3>
+                    <p>الناس خدت أكشن وبتشتري؟</p>
+                </div>
+                 <div class="kpi-family-card">
+                    <div class="icon">🥰</div>
+                    <h3>الولاء ورضا العملاء</h3>
+                    <p>العملاء مبسوطين وبيرجعوا؟</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: REACH KPIs -->
+        <div class="slide" style="border-color: #3498DB;">
+            <h2>📣 مؤشرات الوصول (Reach KPIs)</h2>
+            
+            <div class="content-block">
+                <strong>Reach (الوصول):</strong> أهم رقم هنا. بيقولك البوست وصل لكام <b style="color:#3498DB;">شخص فريد (Unique Users)</b>.
+            </div>
+            <div class="content-block">
+                <strong>Impressions (مرات الظهور):</strong> البوست اتشاف كام مرة إجمالاً (ممكن نفس الشخص يشوفه مرتين).
+            </div>
+            <div class="content-block">
+                <strong>Follower Growth Rate (معدل نمو المتابعين):</strong> بنزيد كام % كل فترة.
+            </div>
+
+             <div class="pro-tip">
+                <strong>💡 ركز على دي:</strong> الـ Reach أهم من عدد المتابعين. الأهم هو وصول المحتوى للناس.
+            </div>
+        </div>
+
+        <!-- SLIDE 7: ENGAGEMENT KPIs -->
+        <div class="slide" style="border-color: #E74C3C;">
+            <h2>❤️ مؤشرات التفاعل (Engagement KPIs)</h2>
+             
+            <div class="content-block">
+                <strong>Engagement Rate (معدل التفاعل):</strong> نسبة الناس اللي اتفاعلت من إجمالي اللي شافوا البوست. هو اللي بيقولك محتواك "مسمّع" معاهم ولا لأ.
+            </div>
+            <div class="content-block">
+                <strong>Saves & Shares (الحفظ والمشاركة):</strong> دي أهم أنواع التفاعل. "Share" يعني المحتوى عجب الناس لدرجة نشره، و "Save" يعني مفيد وعايزين يرجعوله.
+            </div>
+            <div class="content-block">
+                <strong>Comments (التعليقات):</strong> بتدل إن البوست فتح نقاش وحرك مشاعر الناس.
+            </div>
+
+            <div class="pro-tip">
+                <strong>💡 ركز على دي:</strong> التفاعلات العميقة (Share, Save, Comment) أقوى بكتير من مجرد "Like".
+            </div>
+        </div>
+
+        <!-- SLIDE 8: CONVERSION KPIs -->
+        <div class="slide" style="border-color: #2ECC71;">
+            <h2>💰 مؤشرات التحويل (Conversion KPIs)</h2>
+            
+            <div class="content-block">
+                <strong>Click-Through Rate (CTR):</strong> نسبة اللي داسوا على اللينك. بيقيس قوة دعوتك لاتخاذ إجراء (Call-to-Action).
+            </div>
+            <div class="content-block">
+                <strong>Conversion Rate (معدل التحويل):</strong> نسبة اللي كملوا الأكشن بعد الضغط (اشتروا، سجلوا). ده اللي بيعرفك السوشيال ميديا جابت فلوس ولا لأ.
+            </div>
+             <div class="content-block">
+                <strong>Return On Ad Spend (ROAS):</strong> في الإعلانات: كل جنيه صرفته رجعلك كام جنيه مبيعات.
+            </div>
+        </div>
+        
+        <!-- SLIDE 9: TOOLS -->
+        <div class="slide slide-tools">
+            <h2>🛠️ العدّة: أدوات القياس والتحليل</h2>
+            <p>لازم نستخدم أدوات تدينا أرقام دقيقة:</p>
+            
+            <div class="content-block">
+                <strong>Google Analytics:</strong> أساسي لتتبع سلوك الزوار القادمين من السوشيال ميديا على موقعك.
+            </div>
+            <div class="content-block">
+                <strong>Meta Insights (Facebook/Instagram):</strong> تحليلات مجانية وقوية جداً داخل المنصات نفسها.
+            </div>
+            <div class="content-block">
+                <strong>UTM Parameters:</strong> "علامات" بنحطها في اللينكات عشان نعرف مصدر الزيارات بدقة في Google Analytics.
+            </div>
+        </div>
+
+        <!-- SLIDE 10: REPORTING -->
+        <div class="slide slide-report">
+            <h2>📄📈 التقرير الفعّال: نحكي قصة الأرقام</h2>
+            <p>التقرير الناجح مش رص أرقام، هو إجابة على 3 أسئلة:</p>
+            
+            <div class="report-steps">
+                <div class="step">
+                    <strong>What? (ماذا حدث؟):</strong> عرض أهم الـ KPIs ومقارنتها بالأهداف. (مثال: حققنا 90% من المستهدف).
+                </div>
+                <div class="step">
+                    <strong>So What? (وماذا يعني ذلك؟):</strong> تحليل الأسباب. ليه نجحنا أو قصرنا؟ (مثال: العروض المحدودة جابت نتيجة ممتازة).
+                </div>
+                <div class="step">
+                    <strong>Now What? (وماذا بعد؟):</strong> التوصيات والخطوات القادمة. (مثال: هنكرر حملة العروض الشهر الجاي).
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: CONCLUSION -->
+        <div class="slide slide-conclusion">
+            <h2>🚀 الخلاصة: دورة التحسين المستمر</h2>
+            <p style="font-size: 1.8rem; font-weight: bold;">خطط ➡️ نفذ ➡️ قيس ➡️ حلل ➡️ طور ➡️ كرر</p>
+            <p style="margin-top: 30px;">المطلوب الآن: تحديد هدف SMART واحد و 3 مؤشرات (KPIs) لقياسه لأقرب حملة.</p>
+            <h2 style="font-size: 2.5rem; margin-top: 30px;">نبدأ الشغل؟ 💪</h2>
+        </div>
+
+    </div>
+
+</body>
+</html>
